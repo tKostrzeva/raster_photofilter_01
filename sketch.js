@@ -67,7 +67,7 @@ function draw() {
 
   // downbuffer room into tiny 2D buffer
   buffer.resizeCanvas(TILES_X, TILES_Y);
-  buffer.image(cam, 0, 0, TILES_X, TILES_Y);
+  buffer.image(img, 0, 0, TILES_X, TILES_Y);
   buffer.loadPixels();
 
   push();
@@ -87,8 +87,8 @@ function draw() {
       rect(
         x * tileW,
         y * tileH,
-        tileW,
-        tileH
+        tileW * 1.1,
+        tileH * 1.1
       );
     }
   }
