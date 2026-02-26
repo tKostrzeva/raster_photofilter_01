@@ -33,7 +33,7 @@ function setup() {
 
   cam.hide();
 
-  // Save button (saves what you see)
+  // Save button
   saveBtn = createButton("Save frame");
   saveBtn.id("saveFrame");
   saveBtn.mousePressed(() => {
@@ -50,16 +50,12 @@ function draw() {
     (cam.elt.readyState >= 2) &&
     ((cam.elt.videoWidth > 0 && cam.elt.videoHeight > 0) || (cam.width > 0 && cam.height > 0));
 
-  // If camera isn't ready yet, show neutral background (no other UI)
+  // Camera unavailable alert
   if (!camReady) {
     background(40);
     return;
   }
 
-  const tw = cam.elt.videoWidth || cam.width;
-  const th = cam.elt.videoHeight || cam.height;
-
-  
 
   background(230);
 
@@ -97,9 +93,4 @@ function draw() {
     }
   }
   pop();
-
-
-
-
-  /*  image(room, 0, 0, width, height); */
 }
