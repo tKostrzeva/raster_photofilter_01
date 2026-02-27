@@ -60,8 +60,8 @@ function draw() {
   background(230);
 
   TILES_X = 64;
-  TILES_Y = 128;
-
+  TILES_Y = round(TILES_X * height / width);
+  
   let tileW = windowWidth / TILES_X;
   let tileH = windowHeight / TILES_Y;
 
