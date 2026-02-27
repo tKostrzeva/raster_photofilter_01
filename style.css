@@ -1,3 +1,15 @@
+:root {
+  --ui-colorA: #666666;
+  --ui-colorB: #ffffff;
+  --info-color: #333333;
+
+  --thumb-size: 18px;
+  --thumb-radius: 5px;
+
+  --f-size: 15px;
+  --label-pad: 24px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,36 +22,114 @@ body {
   justify-content: center;
   /* padding: 24px; */
   overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-/* len aby bol canvas vycentrovaný na stránke */
 #sketch-wrapper {
-  display: inline-block;
+  display: block;
+  z-index: 1;
+  padding: 0;
 }
 
+.ui {
+  display: block;
+  align-items: center;
+  position: fixed;
+  bottom: 16vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
 
 #saveButton {
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 
-  display: block;                 /* kritické pre iOS */
-  background-color: #ffffff;      /* použi background-color */
+  display: block;
+  background-color: var(--ui-colorB);
   border: 0;
-  border-radius: none;             /* teraz bude fungovať */
+  border-radius: none;
   padding: 0;
   margin: 0;
 
+  font-family: 'Courier New', Courier, monospace;
   font-size: 18px;
   color: #000000;
 
   position: fixed;
-  bottom: 8vh;                    /* lepšie než top: 90% */
+  bottom: 8vh;
   left: 50%;
   transform: translateX(-50%);
 
-  width: 20vw;                    /* % šírky viewportu */
-  width: 300px; 
-  height: 50px;                   /* iOS safe tap size */
+  width: 300px;
+  height: 50px;
 
   z-index: 9999;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+
+  /* display: block; */
+  background-color: var(--ui-colorA);
+  border: 0;
+  border-radius: none;
+  color: #000000;
+  width: 20vw;
+  height: 4px;
+  padding: 0;
+  margin: 0;
+}
+
+.sliders::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: var(--thumb-radius);
+  background: var(--ui-colorA);
+  border: none;
+}
+
+/* --- THUMB (Chrome/Safari) --- */
+.sliders::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border: none;
+  /* border-radius: var(--thumb-radius); */
+  background: var(--ui-colorA);
+  color: var(--ui-colorB);
+  /* transform: rotate(45deg); */
+  margin-top: -7px;
+  z-index: 9999;
+}
+
+.inputLabel {
+  display: block;
+  position: relative;
+  bottom: var(--label-pad);
+
+  font-size: var(--f-size);
+  color: var(--ui-colorA);
+
+  z-index: 9999;
+}
+
+.outputLabel {
+  display: block;
+  position: relative;
+  bottom: 59px;
+
+  font-size: var(--f-size);
+  text-align: right;
+  color: var(--ui-colorA);
+
+  z-index: 9999;
+}
+
+.sliders {
+  margin-bottom: 20px;
 }

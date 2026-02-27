@@ -1,14 +1,65 @@
 <!DOCTYPE html>
 <html lang="sk">
+
 <head>
   <meta charset="UTF-8">
   <title>Raster PhotoFilter</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div id="sketch-wrapper"></div>
+
+
+  <div class="ui">
+
+    <div class="sliders">
+      <label class="inputLabel">HUE_BINS</label>
+      <input type="range" id="sliderA" min="1" max="32" value="6" step="1"
+        oninput="this.nextElementSibling.value = this.value">
+      <output class="outputLabel">6</output>
+    </div>
+
+    <br>
+
+    <div class="sliders">
+      <label class="inputLabel">V_BINS</label>
+      <input type="range" id="sliderB" min="1" max="6" value="1" step="1"
+        oninput="this.nextElementSibling.value = this.value">
+      <output class="outputLabel">1</output>
+    </div>
+
+        <br>
+
+    <div class="sliders">
+      <label class="inputLabel">GRAY_BINS</label>
+      <input type="range" id="sliderC" min="1" max="10" value="4" step="1"
+        oninput="this.nextElementSibling.value = this.value">
+      <output class="outputLabel">4</output>
+    </div>
+
+        <br>
+
+    <div class="sliders">
+      <label class="inputLabel">SAT_CUTOFF</label>
+      <input type="range" id="sliderD" min="0" max="1" value="0.18" step="0.01"
+        oninput="this.nextElementSibling.value = this.value">
+      <output class="outputLabel">0.18</output>
+    </div>
+
+          <br>
+
+    <div class="sliders">
+      <label class="inputLabel">Resolution</label>
+      <input type="range" id="sliderE" min="16" max="128" value="64" step="1"
+        oninput="this.nextElementSibling.value = this.value">
+      <output class="outputLabel">2.5</output>
+    </div>
+
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
   <script src="sketch.js"></script>
 </body>
+
 </html>
